@@ -8,7 +8,12 @@
   <link type="text/css" href="css/materialize.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link type="text/css" href="css/styles.css" rel="stylesheet">
+  <link  href="manifest.json" rel="manifest">
   <script type="text/javascript" src="js/materialize.min.js"></script>
+  <!-- ios support -->
+  <link rel="apple-touch-icon" href="/img/appIcons/snip.png">
+  <meta name="apple-mobile-web-app-status-bar" content="#ad1457">
+  <meta name="theme-color" content="#f48fb1">
 </head>
 <body class="grey lighten-4">
 
@@ -40,7 +45,14 @@
 		<div class="snap-details">
 		  <div class="snap-title">body section</div>
 		</div>
-		<div class="snap-actions">
+		<div class="snap-actions fixed-action-btn">
+			<!-- <a class="btn-floating btn-medium red">
+				<i class="large material-icons">menu</i>
+			</a>
+			<ul>
+				<li><a class="btn-floating yellow darken-1"><i class="material-icons">edit</i>Edit</a></li>
+				<li><a class="btn-floating red"><i class="material-icons">delete_outline</i>Delete</a></li>
+			</ul> -->
 		  <i class="material-icons">edit</i>
 		  <i class="material-icons">delete_outline</i>
 		</div>
@@ -179,5 +191,6 @@
   </div>
 
   <script src="js/ui.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>

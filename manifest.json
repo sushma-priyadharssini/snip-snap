@@ -3,12 +3,17 @@
 	"short_name": "Snip-Snap",
 	"start_url": "index.html",
 	"display": "standalone",
-	"background_color": "#FFE9D2",
-	"theme_color": "#FFE1C4",
+	"background_color": "#f8bbd0",
+	"theme_color": "#f48fb1",
 	"orientation": "portrait-primary",
 	"icons": [
 	  {
-		"src": "img/icons/snip.png",
+		"src": "img/appIcons/snip-225.png",
+		"type": "image/png",
+		"sizes": "225x225"
+	  },
+	  {
+		"src": "img/appIcons/snip-512.png",
 		"type": "image/png",
 		"sizes": "512x512"
 	  }
