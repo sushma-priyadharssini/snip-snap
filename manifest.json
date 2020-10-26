@@ -8,12 +8,12 @@
 	"orientation": "portrait-primary",
 	"icons": [
 	  {
-		"src": "img/appIcons/snip-225.png",
+		"src": "/img/appIcons/snip-225.png",
 		"type": "image/png",
 		"sizes": "225x225"
 	  },
 	  {
-		"src": "img/appIcons/snip-512.png",
+		"src": "/img/appIcons/snip-512.png",
 		"type": "image/png",
 		"sizes": "512x512"
 	  }
