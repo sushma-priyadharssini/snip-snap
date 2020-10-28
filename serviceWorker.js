@@ -1,4 +1,4 @@
-const staticCacheName = 'site-static-v3';
+const staticCacheName = 'site-static-v6';
 const dynamicCacheName = 'site-dynamic-v1';
 const assets = [
   '/',
@@ -13,8 +13,8 @@ const assets = [
   '/img/dish.png',
   '/img/snitch.png',
   'https://fonts.googleapis.com/icon?family=Material+Icons',
-  'https://fonts.gstatic.com/s/materialicons/v47/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2',
-  'https://fonts.gstatic.com/s/materialicons/v55/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2'
+  'https://fonts.gstatic.com/s/materialicons/v55/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2',
+  '/pages/fallback.html'
 ];
 
 // listening for install event
@@ -22,8 +22,11 @@ self.addEventListener('install', evt => {
 	// console.log('service worker installed');
 	evt.waitUntil(
 		caches.open(staticCacheName).then((cache) => {
-		  console.log('caching shell assets');
-		  cache.addAll(assets); //
+			console.log('caching shell assets');
+			cache.addAll(assets); // dasdada
+			// cache.adderall(
+			// 	assets.map(url => new Request(url, { credentials: 'include' }))
+			// );
 		})
 	);
 });
@@ -35,7 +38,7 @@ self.addEventListener('activate', evt => {
 		caches.keys().then(keys => {
 		  //console.log(keys);
 		  return Promise.all(keys
-			.filter(key => key !== staticCacheName)
+			.filter(key => key !== staticCacheName && key !== dynamicCacheName)
 			.map(key => caches.delete(key))
 		  );
 		})
@@ -54,8 +57,9 @@ self.addEventListener('fetch', evt => {
 			console.log('fetching from network');
 			return fetch(evt.request).then(fetchRes => {
 				return caches.open(dynamicCacheName).then(cache => {
-				  cache.put(evt.request.url, fetchRes.clone());
-				  return fetchRes;
+					cache.put(evt.request.url, fetchRes.clone());
+					limitCacheSize(dynamicCacheName, 15); // check cache size
+					return fetchRes;
 				})
 			});
 			// return cacheRes || fetch(evt.request);
@@ -63,6 +67,21 @@ self.addEventListener('fetch', evt => {
 			// 	cacheRes.put(evt.request, response.clone());
 			// 	return response;
 			// });
+		}).catch(() => {
+			if (evt.request.url.includes('.html')) {
+				caches.match('/pages/fallback.html')
+			}
 		})
 	);
 });
+
+// cache size limit function
+const limitCacheSize = (name, size) => {
+	caches.open(name).then(cache => {
+	  cache.keys().then(keys => {
+		if(keys.length > size){
+		  cache.delete(keys[0]).then(limitCacheSize(name, size));
+		}
+	  });
+	});
+  };
