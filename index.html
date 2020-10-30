@@ -39,131 +39,7 @@
   </ul>
 
   <!-- recipes -->
-  <div class="snaps container grey-text text-darken-1">
-	<div class="card-panel snap white row">
-		<img src="/img/dish.png" alt="snap thumb">
-		<div class="snap-details">
-		  <div class="snap-title">body section</div>
-		</div>
-		<div class="snap-actions fixed-action-btn">
-			<!-- <a class="btn-floating btn-medium red">
-				<i class="large material-icons">menu</i>
-			</a>
-			<ul>
-				<li><a class="btn-floating yellow darken-1"><i class="material-icons">edit</i>Edit</a></li>
-				<li><a class="btn-floating red"><i class="material-icons">delete_outline</i>Delete</a></li>
-			</ul> -->
-		  <i class="material-icons">edit</i>
-		  <i class="material-icons">delete_outline</i>
-		</div>
-	</div>
-    <div class="card-panel snap white row">
-		<img src="/img/bird.jpg" alt="snap thumb">
-		<div class="snap-details">
-		  <div class="snap-title">Header</div>
-		</div>
-		<div class="snap-actions">
-		  <i class="material-icons">edit</i>
-		  <i class="material-icons">delete_outline</i>
-		</div>
-	</div>
-    <div class="card-panel snap white row">
-		<img src="/img/blue.jpg" alt="snap thumb">
-		<div class="snap-details">
-		  <div class="snap-title">side menu layout</div>
-		</div>
-		<div class="snap-actions">
-		  <i class="material-icons">edit</i>
-		  <i class="material-icons">delete_outline</i>
-		</div>
-	</div>
-    <div class="card-panel snap white row">
-      <img src="/img/snitch.png" alt="snap thumb">
-      <div class="snap-details">
-        <div class="snap-title">nav links</div>
-      </div>
-      <div class="snap-actions">
-		<i class="material-icons">edit</i>
-		<i class="material-icons">delete_outline</i>
-	  </div>
-	</div>
-	<!-- <div class="row">
-		<div class="col s12 m4">
-		  <div class="card small">
-			<div class="card-image">
-			  <img class="responsive-img"src="img/dish.png">
-			  <span class="card-title">Card Title</span>
-			  <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
-			</div>
-			<div class="card-content">
-			  <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-			</div>
-		  </div>
-		</div>
-		<div class="col s12 m4">
-			<div class="card small">
-			  <div class="card-image">
-				<img src="img/dish.png">
-				<span class="card-title">Card Title</span>
-				<a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
-			  </div>
-			  <div class="card-content">
-				<p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-			  </div>
-			</div>
-		  </div>
-		  <div class="col s12 m4">
-			<div class="card small">
-			  <div class="card-image">
-				<img src="img/dish.png">
-				<span class="card-title">Card Title</span>
-				<a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
-			  </div>
-			  <div class="card-content">
-				<p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-			  </div>
-			</div>
-		  </div>
-	</div>
-	<div class="row">
-		<div class="col s12 m4">
-		  <div class="card small">
-			<div class="card-image">
-			  <img class="responsive-img" src="img/dish.png">
-			  <span class="card-title">Card Title</span>
-			  <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
-			</div>
-			<div class="card-content">
-			  <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-			</div>
-		  </div>
-		</div>
-		<div class="col s12 m4">
-			<div class="card small">
-			  <div class="card-image">
-				<img src="img/dish.png">
-				<span class="card-title">Card Title</span>
-				<a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
-			  </div>
-			  <div class="card-content">
-				<p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-			  </div>
-			</div>
-		  </div>
-		  <div class="col s12 m4">
-			<div class="card small">
-			  <div class="card-image">
-				<img src="img/dish.png">
-				<span class="card-title">Card Title</span>
-				<a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
-			  </div>
-			  <div class="card-content">
-				<p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-			  </div>
-			</div>
-		  </div>
-	</div> -->
-  </div>
+  <div class="snaps container grey-text text-darken-1"></div>
 
   <div class="center">
     <a class="btn-floating btn-small btn-large add-btn sidenav-trigger" data-target="side-form">
@@ -195,8 +71,6 @@
 	<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-firestore.js"></script>
 
 	<script>
-		// Your web app's Firebase configuration
-		// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 		var firebaseConfig = {
 			apiKey: "AIzaSyAnXiSOOmY001G2oufDKXaMPHiQX6Pwmgs",
 			authDomain: "snip-snap-7ca5c.firebaseapp.com",
@@ -211,8 +85,8 @@
 		firebase.initializeApp(firebaseConfig);
 		const db = firebase.firestore();
 	</script>
-	<script src="/js/ui.js"></script>
-	<script src="/js/db.js"></script>
 	<script src="/js/app.js"></script>
+	<script src="/js/db.js"></script>
+	<script src="/js/ui.js"></script>
 </body>
 </html>

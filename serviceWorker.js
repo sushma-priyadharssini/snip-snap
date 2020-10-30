@@ -1,4 +1,4 @@
-const staticCacheName = 'site-static-v6';
+const staticCacheName = 'site-static-v1';
 const dynamicCacheName = 'site-dynamic-v1';
 const assets = [
   '/',
@@ -48,31 +48,33 @@ self.addEventListener('activate', evt => {
 // fetch event
 self.addEventListener('fetch', evt => {
 	// console.log('fetch event', evt);
-	evt.respondWith(
-		caches.match(evt.request).then(cacheRes => {
-			if (cacheRes) {
-				console.log(cacheRes);
-				return cacheRes;
-			}
-			console.log('fetching from network');
-			return fetch(evt.request).then(fetchRes => {
-				return caches.open(dynamicCacheName).then(cache => {
-					cache.put(evt.request.url, fetchRes.clone());
-					limitCacheSize(dynamicCacheName, 15); // check cache size
-					return fetchRes;
-				})
-			});
-			// return cacheRes || fetch(evt.request);
-			// return cacheRes || fetch(evt.request).then(function(response) {
-			// 	cacheRes.put(evt.request, response.clone());
-			// 	return response;
-			// });
-		}).catch(() => {
-			if (evt.request.url.includes('.html')) {
-				caches.match('/pages/fallback.html')
-			}
-		})
-	);
+	if(evt.request.url.indexOf('firestore.googleapis.com') === -1) {
+		evt.respondWith(
+			caches.match(evt.request).then(cacheRes => {
+				if (cacheRes) {
+					console.log(cacheRes);
+					return cacheRes;
+				}
+				console.log('fetching from network');
+				return fetch(evt.request).then(fetchRes => {
+					return caches.open(dynamicCacheName).then(cache => {
+						cache.put(evt.request.url, fetchRes.clone());
+						limitCacheSize(dynamicCacheName, 15); // check cache size
+						return fetchRes;
+					})
+				});
+				// return cacheRes || fetch(evt.request);
+				// return cacheRes || fetch(evt.request).then(function(response) {
+				// 	cacheRes.put(evt.request, response.clone());
+				// 	return response;
+				// });
+			}).catch(() => {
+				if (evt.request.url.includes('.html')) {
+					caches.match('/pages/fallback.html')
+				}
+			})
+		);
+	}
 });
 
 // cache size limit function
