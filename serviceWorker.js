@@ -48,7 +48,7 @@ self.addEventListener('activate', evt => {
 // fetch event
 self.addEventListener('fetch', evt => {
 	// console.log('fetch event', evt);
-	if(evt.request.url.indexOf('firestore.googleapis.com') === -1) {
+	if(evt.request.url.indexOf('firestore.googleapis.com') === -1 && evt.request.url.indexOf('firebasestorage.googleapis.com') === -1) {
 		evt.respondWith(
 			caches.match(evt.request).then(cacheRes => {
 				if (cacheRes) {

@@ -66,10 +66,31 @@ input{
   box-shadow: none !important;
   -webkit-box-shadow: none !important;
 }
-.side-form button{
+
+.side-form {
+	width: 40%;
+}
+
+.side-form #upload-image-section {
+	display: flex;
+	justify-content: space-between;
+}
+
+.side-form #upload-image {
+	background: #26a69a;
+	color: #fff;
+}
+
+.side-form #add-btn{
   background: var(--title);
   box-shadow: 1px 1px 3px rgba(90,90,90,0.2);
 }
+
 form .input-field{
   margin-top: 30px;
 }
+.hidden {
+	visibility: hidden;
+	width: 1px;
+	height: 1px;
+  }
